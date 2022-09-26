@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MainSection>
+
+<a href="/admin/mainsection/create" class="btn btn-outline-primary mb-3">Create</a>
+
+
+
+
+
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Title</td>
+                            <td>
+                                <img src="@item.ImageUrl" width="100" alt="..." />
+                            </td>
+                            <td class="col-2">
+                                <a href="/admin/mainsection/edit/@item.Id" class="btn btn-outline-warning">Edit</a>
+                                <a href="/admin/mainsection/delete/@item.Id" class="btn btn-outline-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
